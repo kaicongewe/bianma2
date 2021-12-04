@@ -5,11 +5,11 @@ function output = conv_encode(input, A)
 %       a (2, 1, 2)-code encoding process
 
     output = [];
-    n = size(A,1); %Number of output bits
-    k = 1; %Number of input bits
+    n = size(A,1); % n/k is the number of output bits per input bit
+    k = size(A,3); % Currently only supports k=1
     N = size(A,2); %Number of Nodes
     state = zeros(N,1)'; %Represents the state of each node, there are in total N nodes.
-    input = [input, zeros(k*(N-1),1)']; %Append shouwei-signal to the input signal
+    input = [input, zeros(k*(N),1)']; %Append shouwei-signal to the input signal
     
     %Start of the encoding process
     for i = 1:length(input) %Traverse the input signal per bit
