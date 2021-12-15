@@ -1,7 +1,7 @@
 classdef Viterbi_Node
         properties
             state = [];
-            distance = 999;
+            distance = inf;
             prev_node = -1;
         end
 end
